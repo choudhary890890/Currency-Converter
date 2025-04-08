@@ -1,0 +1,200 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CONVERTER</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="MainPage.css" type="text/css">
+    </head>
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+        <video autoplay muted loop id="background-video">
+            <source src="5v.mp4" type="video/mp4">
+            <source src="5v.webm" type="video/webm">
+        </video>
+        <!-- HEADER -->
+        <div class="d-flex flex-row justify-content-evenly pb-2 mt-3 position-relative" id="containing">
+            <a class="btn" id="history" role="button" href="H-1.html">HISTORY</a>
+            <a class="btn" id="converter" role="button" href="Mainpage.html">CONVERTER</a>
+            <a class="btn" id="favourites" role="button" href="F-1.html">FAVOURITES</a>
+            <button class="menu-btn btn btn-dark" id="menuPopover" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-html="true">☰</button>
+        </div><br><br>
+
+        <!-- MAIN BODY -->
+        <div class="card card-border rounded-4 " style="opacity: 0.9;">
+            <h5 id="ch" class="card-header" style="text-align: center;"><strong>CONVERTER</strong></h5>
+            <div id="cb" class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col align-self-start" id="exchangerate">Exchange Rate: </div>
+                    </div><br><br>
+                    <!-- CONVERSION AREA -->
+                    <div class="d-flex flex-row justify-content-evenly align-items-center">
+                        <div class="c1">
+                            <input id="currencyFrom" class="form-control border-dark" list="currencyOptions" placeholder="INR">
+                            <datalist id="currencyOptions">
+                                <option value="AUD"> <!-- Australia-->
+                                <option value="BRL"> <!-- Brazil-->
+                                <option value="BDT"> <!-- Bangladesh-->
+                                <option value="BTN"> <!-- Bhutan-->
+                                <option value="CAD"> <!-- Canada-->
+                                <option value="CNY"> <!-- China-->
+                                <option value="EUR"> <!-- Euro-->
+                                <option value="HKD"> <!-- Hong Kong-->
+                                <option value="IDR"> <!-- Indonesia-->
+                                <option value="INR"> <!-- India-->
+                                <option value="JPY"> <!-- Japan-->
+                                <option value="KRW"> <!-- South Korea-->
+                                <option value="MXN"> <!-- Mexico-->
+                                <option value="NPR"> <!-- Nepal-->
+                                <option value="RUB"> <!-- Russia-->
+                                <option value="SAR"> <!-- Saudi Arabia-->
+                                <option value="SGD"> <!-- Singapore-->
+                                <option value="TRY"> <!-- Turkey-->
+                                <option value="GBP"> <!-- UK-->
+                                <option value="USD"> <!-- USA-->
+                                <option value="VND"> <!-- Vietnam-->
+                                <option value="ZAR"> <!-- South Africa-->
+                            </datalist><br>
+                            <input id="amountFrom" type="number" class="form-control border-dark" placeholder="0.0">
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="33" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"/>
+                        </svg>
+                        <div class="c2">
+                            <input id="currencyTo" class="form-control border-dark" list="currencyOptions" placeholder="INR">
+                            <datalist id="currencyOptions">
+                                <option value="AUD"> <!-- Australia-->
+                                <option value="BRL"> <!-- Brazil-->
+                                <option value="BDT"> <!-- Bangladesh-->
+                                <option value="BTN"> <!-- Bhutan-->
+                                <option value="CAD"> <!-- Canada-->
+                                <option value="CNY"> <!-- China-->
+                                <option value="EUR"> <!-- Euro-->
+                                <option value="HKD"> <!-- Hong Kong-->
+                                <option value="IDR"> <!-- Indonesia-->
+                                <option value="INR"> <!-- India-->
+                                <option value="JPY"> <!-- Japan-->
+                                <option value="KRW"> <!-- South Korea-->
+                                <option value="MXN"> <!-- Mexico-->
+                                <option value="NPR"> <!-- Nepal-->
+                                <option value="RUB"> <!-- Russia-->
+                                <option value="SAR"> <!-- Saudi Arabia-->
+                                <option value="SGD"> <!-- Singapore-->
+                                <option value="TRY"> <!-- Turkey-->
+                                <option value="GBP"> <!-- UK-->
+                                <option value="USD"> <!-- USA-->
+                                <option value="VND"> <!-- Vietnam-->
+                                <option value="ZAR"> <!-- South Africa-->
+                            </datalist><br>
+                            <input id="amountTo" type="number" class="form-control border-dark" placeholder="0.0" readonly>
+                        </div>
+                    </div><br>
+                    <div class="d-flex flex-row justify-content-center mb-4">
+                        <button type="button" id="result" class="btn btn-dark btn-md">Result</button>
+                        <button type="button" id="add" class="btn btn-danger btn-md">Add To Favourites</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+             // Function to fetch and display the exchange rate
+             function updateExchangeRate() {
+                var fromCurrency = document.getElementById("currencyFrom").value;
+                var toCurrency = document.getElementById("currencyTo").value;
+
+                if (fromCurrency && toCurrency) {
+                    var apiURL = `https://api.exchangerate-api.com/v4/latest/${fromCurrency}`;
+
+                    // Fetch exchange rates
+                    fetch(apiURL)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.rates[toCurrency]) {
+                                var rate = data.rates[toCurrency];
+                                document.getElementById("exchangerate").textContent = `Exchange Rate: 1 ${fromCurrency} = ${rate} ${toCurrency}`;
+                            } else {
+                                document.getElementById("exchangerate").textContent = 'Exchange Rate: Not Available';
+                            }
+                        })
+                        .catch(error => {
+                            document.getElementById("exchangerate").textContent = 'Exchange Rate: Error fetching data';
+                        });
+                }
+            }
+
+            // Event listeners to update exchange rate as soon as a currency is selected
+            document.getElementById("currencyFrom").addEventListener("change", updateExchangeRate);
+            document.getElementById("currencyTo").addEventListener("change", updateExchangeRate);
+
+            document.getElementById("result").addEventListener("click", function() {
+                var fromCurrency = document.getElementById("currencyFrom").value;
+                var toCurrency = document.getElementById("currencyTo").value;
+                var amount = parseFloat(document.getElementById("amountFrom").value);
+
+                var apiURL = `https://api.exchangerate-api.com/v4/latest/${fromCurrency}`;
+
+                fetch(apiURL)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.rates[toCurrency]) {
+                            var conversionRate = data.rates[toCurrency];
+                            var convertedAmount = (amount * conversionRate).toFixed(2);
+                            document.getElementById("amountTo").value = convertedAmount;
+                        } else {
+                            alert("Invalid currency code.");
+                        }
+                    })
+                    .catch(error => {
+                        alert("Error fetching data: " + error);
+                    });
+            });
+            // Initialize the popover for the menu button
+            document.addEventListener('DOMContentLoaded', function () {
+                var popoverTrigger = document.getElementById('menuPopover');
+                var popoverContent = `
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="about-us.html" class="text-decoration-none">About Us</a></li>
+                        <li class="list-group-item"><a href="contact-us.html" class="text-decoration-none">Contact Us</a></li>
+                    </ul>
+                `;
+                var popover = new bootstrap.Popover(popoverTrigger, {
+                    content: popoverContent,
+                    html: true,
+                    sanitize: false,
+                });
+                popoverTrigger.addEventListener('click', function () {
+                    popover.toggle();
+                });
+            });
+            // Add to Favourites
+document.getElementById("add").addEventListener("click", function () {
+    var fromCurrency = document.getElementById("currencyFrom").value;
+    var toCurrency = document.getElementById("currencyTo").value;
+    var amount = parseFloat(document.getElementById("amountFrom").value);
+    var convertedAmount = document.getElementById("amountTo").value;
+
+    if (fromCurrency && toCurrency && !isNaN(amount) && convertedAmount) {
+        var favourite = {
+            fromCurrency: fromCurrency,
+            toCurrency: toCurrency,
+            amount: amount,
+            convertedAmount: convertedAmount
+        };
+
+        // Save to localStorage
+        var favourites = JSON.parse(localStorage.getItem("favourites")) || [];
+        favourites.push(favourite);
+        localStorage.setItem("favourites", JSON.stringify(favourites));
+        alert("Conversion added to favourites!");
+    } else {
+        alert("Please complete the conversion before adding to favourites.");
+    }
+});
+
+        </script>
+    </body>
+</html>

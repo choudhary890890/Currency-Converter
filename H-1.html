@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("");
+    background-size: ;
+    margin: auto;
+    
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1;
+}
+
+.cont {
+    background: white;
+    margin: 10%;
+    margin-top: 4%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.752;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+input[type="text"]
+ {  width: 99.5%;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    border-color: black;
+}
+
+.history {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    height: 100%;
+    text-align: center;
+    border-color: black;
+}
+
+#containing {
+    position: relative; /* Required for the absolute positioning of the button */
+}
+
+/* Menu button (☰) hover effect */
+.menu-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-55%);
+    height: 40px;
+    width: 40px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+}
+
+/* Retain hover effect on buttons when hovered individually */
+#history,
+#favourites,
+#converter {
+    height: 40px;
+    width: 119px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: scale 0.25s ease-in, opacity 0.25s ease-in, filter 0.25s ease-in;
+}
+
+#containing:has(.btn:hover) .btn:not(:hover){
+    scale: 0.8;
+    opacity:0.6;
+    fill: blur(2px);
+    }
+
+#history:hover,
+#favourites:hover,
+#converter:hover {
+    scale: 1.2;
+}
+
+    </style>
+    <title>History Page</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <video autoplay muted loop id="background-video">
+        <source src="4v.mp4" type="video/mp4">
+        <source src="4v.webm" type="video/webm">
+    </video>
+
+    <div class="d-flex flex-row justify-content-evenly pb-2 mt-3 position-relative" id="containing">
+        <a class="btn" id="history" role="button" href="H-1.html">HISTORY</a>
+        <a class="btn" id="converter" role="button" href="Mainpage.html">CONVERTER</a>
+        <a class="btn" id="favourites" role="button" href="F-1.html">FAVOURITES</a>
+        <button class="menu-btn btn btn-dark" id="menuPopover" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="" data-bs-html="true">☰</button>
+    </div><br><br>
+    <div class="cont">
+        <h1>History Page</h1>
+        
+        <input type="text" placeholder="Search history..." id="search-input">
+    
+        <div class="history">
+            <br><br><br>
+        HISTORY WILL BE AVAILABLE SOON
+            <br><br><br>
+        </div>
+    </div>
+    <script>
+        // Initialize the popover for the menu button
+        document.addEventListener('DOMContentLoaded', function () {
+               var popoverTrigger = document.getElementById('menuPopover');
+               var popoverContent = `
+                   <ul class="list-group">
+                       <li class="list-group-item"><a href="about-us.html" class="text-decoration-none">About Us</a></li>
+                       <li class="list-group-item"><a href="contact-us.html" class="text-decoration-none">Contact Us</a></li>
+                   </ul>
+               `;
+               var popover = new bootstrap.Popover(popoverTrigger, {
+                   content: popoverContent,
+                   html: true,
+                   sanitize: false,
+               });
+               popoverTrigger.addEventListener('click', function () {
+                   popover.toggle();
+               });
+           });
+   </script>
+</body>
+</html>
